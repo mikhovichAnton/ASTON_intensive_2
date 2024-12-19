@@ -15,13 +15,13 @@ class WheelOfColorsView @JvmOverloads constructor(
 ) : View(context, attrs, defStyleAttr)  {
 
     private val colorsForWheel = arrayOf(
+        Paint().apply { color = Color.RED },
         Paint().apply { color = Color.parseColor("#FF9800") },
-        Paint().apply { color = Color.parseColor("#673AB7") },
-        Paint().apply { color = Color.GREEN },
         Paint().apply { color = Color.YELLOW },
-        Paint().apply { color = Color.BLUE },
+        Paint().apply { color = Color.GREEN },
         Paint().apply { color = Color.CYAN },
-        Paint().apply { color = Color.RED }
+        Paint().apply { color = Color.BLUE },
+        Paint().apply { color = Color.parseColor("#673AB7") }
     )
     private val sectionCount = colorsForWheel.size
     var currentAngle: Float = 0f
@@ -48,9 +48,9 @@ class WheelOfColorsView @JvmOverloads constructor(
         }
     }
 
-//    fun getColorIndex(): Int{
-//        return ((currentAngle + sweepAngle / 2) / sweepAngle).toInt() % sectionCount
-//    }
+    fun getColorIndex(): Int{
+        return ((currentAngle + sweepAngle / 2) / sweepAngle).toInt() % sectionCount
+    }
 
     fun settingCurrentAngle(angle: Float){
         currentAngle = angle
